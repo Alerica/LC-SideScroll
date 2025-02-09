@@ -351,6 +351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fe8ee93d082974f9306148d3e02f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1017827858 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4564633281458501190, guid: 83750497abb8eda46a0c6d7f02ae934a, type: 3}
+  m_PrefabInstance: {fileID: 664626169670462995}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1640805007
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1640805008}
   - component: {fileID: 1640805009}
+  - component: {fileID: 1640805010}
   m_Layer: 0
   m_Name: Background2
   m_TagString: Untagged
@@ -377,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 1640805007}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.04, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0.04, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -438,6 +444,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1640805010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640805007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a448dff5ea62ff7439446f6947c43663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  followTarget: {fileID: 1017827858}
 --- !u!1 &1729366930
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1729366931}
   - component: {fileID: 1729366932}
+  - component: {fileID: 1729366933}
   m_Layer: 0
   m_Name: Background1
   m_TagString: Untagged
@@ -464,7 +485,7 @@ Transform:
   m_GameObject: {fileID: 1729366930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.04, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0.04, z: -0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -525,6 +546,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1729366933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729366930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a448dff5ea62ff7439446f6947c43663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  followTarget: {fileID: 1017827858}
 --- !u!1 &1775694444
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +570,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1775694445}
   - component: {fileID: 1775694446}
+  - component: {fileID: 1775694447}
   m_Layer: 0
   m_Name: Background3
   m_TagString: Untagged
@@ -551,7 +587,7 @@ Transform:
   m_GameObject: {fileID: 1775694444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: 0.04, z: 0}
+  m_LocalPosition: {x: -0.12, y: 0.04, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -612,6 +648,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1775694447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775694444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a448dff5ea62ff7439446f6947c43663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  followTarget: {fileID: 1017827858}
 --- !u!1 &2118794185
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1099805767281140552, guid: 83750497abb8eda46a0c6d7f02ae934a, type: 3}
       propertyPath: walkSpeed
-      value: 10
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1330811940145553013, guid: 83750497abb8eda46a0c6d7f02ae934a, type: 3}
       propertyPath: m_DrawMode

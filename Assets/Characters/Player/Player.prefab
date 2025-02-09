@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fe8ee93d082974f9306148d3e02f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  walkSpeed: 200
   rb2d: {fileID: 7076894783547020297}
 --- !u!114 &794136630423702257
 MonoBehaviour:
