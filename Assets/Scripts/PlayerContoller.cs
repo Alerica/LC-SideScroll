@@ -43,7 +43,7 @@ public class PlayerContoller : MonoBehaviour
         private set 
         {
             isMoving = value;
-            animator.SetBool("IsMoving", IsMoving);
+            animator.SetBool(AnimationStrings.isMoving, IsMoving);
         }
     }
 
@@ -54,7 +54,7 @@ public class PlayerContoller : MonoBehaviour
         private set
         {
             isRunning = value;
-            animator.SetBool("IsRunning", IsRunning);
+            animator.SetBool(AnimationStrings.isRunning, IsRunning);
         }   
     }
 
