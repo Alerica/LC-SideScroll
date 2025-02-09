@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
@@ -9,20 +10,31 @@ using UnityEngine.Pool;
 public class PlayerContoller : MonoBehaviour
 {
     public float walkSpeed = 5f;
+    public float airboneSpeed = 3f;
     public float runSpeed = 8f;
+    public float jumpForce = 10f;
+    TouchingDirection touchingDirection;
 
     public float CurrentMovementSpeeed { get 
         {
-            if(IsMoving)
+            if(IsMoving && !touchingDirection.IsOnWall)
             {
-                if(IsRunning) 
+                if(touchingDirection.IsGrounded)
                 {
-                    return runSpeed;
-                } 
-                else 
+                    if(IsRunning) 
+                    {
+                        return runSpeed;
+                    } 
+                    else 
+                    {
+                        return walkSpeed;
+                    } 
+                }
+                else
                 {
-                    return walkSpeed;
-                } 
+                    return airboneSpeed;
+                }
+                
             } 
             else 
             {
@@ -33,7 +45,6 @@ public class PlayerContoller : MonoBehaviour
     Vector2 moveInput;
     private bool isMoving = false;
     private bool isRunning = false;
-
     public bool isFacingRight = true;
 
     public bool IsMoving { get 
@@ -77,6 +88,7 @@ public class PlayerContoller : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        touchingDirection = GetComponent<TouchingDirection>();
     }
     
     void Start()
@@ -93,11 +105,25 @@ public class PlayerContoller : MonoBehaviour
     private void FixedUpdate()
     {
         rb2d.linearVelocity = new Vector2(moveInput.x * CurrentMovementSpeeed, rb2d.linearVelocity.y);
-
+        animator.SetFloat(AnimationStrings.yVelocity, rb2d.linearVelocity.y);
     }
 
     public void OnAttack() 
     {
+
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if(context.started && touchingDirection.IsGrounded)
+        { 
+            animator.SetTrigger(AnimationStrings.isJumping);
+            rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpForce);
+        } 
+        else if (!touchingDirection.IsGrounded)
+        {
+            animator.SetBool(AnimationStrings.isJumping, false);
+        }
 
     }
 
@@ -125,7 +151,8 @@ public class PlayerContoller : MonoBehaviour
         if(context.started)
         {
             IsRunning = true;
-        } else if(context.canceled) 
+        } 
+        else if(context.canceled) 
         {
             IsRunning = false;
         }
