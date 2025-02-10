@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 3.83, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -526,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 1067241639}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 3.83, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13699,7 +13699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4564633281458501190, guid: 83750497abb8eda46a0c6d7f02ae934a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 4564633281458501190, guid: 83750497abb8eda46a0c6d7f02ae934a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13750,6 +13750,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83750497abb8eda46a0c6d7f02ae934a, type: 3}
+--- !u!1001 &5471477425161159546
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8592845
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3676879701832695768, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: m_Name
+      value: Knight Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964215667867662728, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: wallDistance
+      value: 0.07
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -13760,3 +13821,4 @@ SceneRoots:
   - {fileID: 2118794186}
   - {fileID: 1067241642}
   - {fileID: 290686222}
+  - {fileID: 5471477425161159546}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TouchingDirection : MonoBehaviour
@@ -7,8 +8,9 @@ public class TouchingDirection : MonoBehaviour
     public ContactFilter2D castFilter;
     CapsuleCollider2D touchingCollider;
     public float groundDistance = 0.05f;
-    public float wallDistance = 0.02f;
+    public float wallDistance = 0.07f;
     public float ceillingDistance = 0.05f;
+    
     [SerializeField]
     private bool isGrounded;
     private bool isOnWall;
@@ -18,7 +20,7 @@ public class TouchingDirection : MonoBehaviour
    
     RaycastHit2D[] groundHits = new RaycastHit2D[5];
     RaycastHit2D[] wallHits = new RaycastHit2D[5];
-    RaycastHit2D[] ceillingHits = new RaycastHit2D[5];
+    RaycastHit2D[] ceilingHits = new RaycastHit2D[5];
 
     public bool IsOnWall { get
         {
@@ -27,7 +29,7 @@ public class TouchingDirection : MonoBehaviour
         private set 
         {
             isOnWall = value;
-            animator.SetBool(AnimationStrings.isOnWall, isOnWall);
+            animator.SetBool(AnimationStrings.isOnWall, value);
         }
     }  
     public bool IsOnCeiling { get
@@ -37,7 +39,7 @@ public class TouchingDirection : MonoBehaviour
         private set 
         {
             isOnCeiling = value;
-            animator.SetBool(AnimationStrings.isOnCeilling, isOnCeiling);
+            animator.SetBool(AnimationStrings.isOnCeilling, value);
         }
     }  
     public bool IsGrounded { get
@@ -47,7 +49,7 @@ public class TouchingDirection : MonoBehaviour
         private set 
         {
             isGrounded = value;
-            animator.SetBool(AnimationStrings.isGrounded, isGrounded);
+            animator.SetBool(AnimationStrings.isGrounded, value);
         }
     }  
       
@@ -72,6 +74,6 @@ public class TouchingDirection : MonoBehaviour
     {
         IsGrounded = touchingCollider.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
         IsOnWall = touchingCollider.Cast(wallCheckDirection, castFilter , wallHits, wallDistance) > 0;
-        IsOnCeiling = touchingCollider.Cast(Vector2.up, castFilter , ceillingHits, ceillingDistance) > 0;
+        IsOnCeiling = touchingCollider.Cast(Vector2.up, castFilter , ceilingHits, ceillingDistance) > 0;
     }
 }
