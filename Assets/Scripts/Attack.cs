@@ -10,7 +10,8 @@ public class Attack : MonoBehaviour
         Damageable damageable = colision.GetComponent<Damageable>();
         if (damageable != null)
         {
-            damageable.Hit(attackDamage, knockback);
+            Vector2 deliveredKnockback = transform.parent.localScale.x > 0 ? knockback : new Vector2(-knockback.x, knockback.y);
+            damageable.Hit(attackDamage, deliveredKnockback);
         }
     }
 }

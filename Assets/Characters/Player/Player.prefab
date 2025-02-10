@@ -137,7 +137,7 @@ MonoBehaviour:
   walkSpeed: 5
   airboneSpeed: 3
   runSpeed: 8
-  jumpForce: 10
+  jumpForce: 5
   rb2d: {fileID: 7076894783547020297}
   isFacingRight: 1
 --- !u!114 &794136630423702257
@@ -441,7 +441,7 @@ Transform:
   m_GameObject: {fileID: 7563768162962862555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -494,11 +494,11 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0.34222603, y: 1.2212183}
-      - {x: -1.5481832, y: 1.1379571}
-      - {x: -0.4605437, y: 0.2170457}
-      - {x: -0.84837, y: -0.80901706}
-      - {x: 0.3118707, y: -0.80901694}
-      - {x: 0.75178623, y: 0.49295968}
+      - {x: -0.98125935, y: 1.2189462}
+      - {x: -0.26385552, y: 0.2748951}
+      - {x: -0.64011186, y: -0.8437265}
+      - {x: 0.48541892, y: -0.9015758}
+      - {x: 1.179872, y: 0.49295968}
   m_UseDelaunayMesh: 0
 --- !u!114 &7096400796389672288
 MonoBehaviour:
@@ -513,4 +513,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 20
-  knockback: {x: 2, y: 1}
+  knockback: {x: 2, y: 2}

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))]
@@ -55,6 +56,18 @@ public class Knight : MonoBehaviour
             return animator.GetBool(AnimationStrings.canMove);
         }
     }
+    
+    public float AttackCooldown 
+    {
+        get
+        {
+            return animator.GetFloat(AnimationStrings.attackCooldown);
+        }
+        private set
+        {
+            animator.SetFloat(AnimationStrings.attackCooldown, MathF.Max(value, 0));
+        }
+    }
 
     void Awake()
     {
@@ -68,6 +81,8 @@ public class Knight : MonoBehaviour
     void Update() 
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
+        if(AttackCooldown > 0)
+        AttackCooldown -= Time.deltaTime;
     }
 
     void FixedUpdate() 
