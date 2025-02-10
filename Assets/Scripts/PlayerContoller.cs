@@ -14,6 +14,9 @@ public class PlayerContoller : MonoBehaviour
     public float runSpeed = 8f;
     public float jumpForce = 10f;
     TouchingDirection touchingDirection;
+    public Rigidbody2D rb2d;
+    Animator animator;
+    Damageable damageable;
 
     public float CurrentMovementSpeeed { get 
         {
@@ -55,6 +58,7 @@ public class PlayerContoller : MonoBehaviour
     private bool isRunning = false;
     public bool isFacingRight = true;
 
+    
     public bool IsMoving { get 
         {
             return isMoving;
@@ -96,13 +100,13 @@ public class PlayerContoller : MonoBehaviour
             return animator.GetBool(AnimationStrings.canMove);
         }
     }
-    public Rigidbody2D rb2d;
-    Animator animator;
+    
     void Awake() 
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirection = GetComponent<TouchingDirection>();
+        damageable = GetComponent<Damageable>();
     }
     
     void Start()
@@ -118,7 +122,8 @@ public class PlayerContoller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.linearVelocity = new Vector2(moveInput.x * CurrentMovementSpeeed, rb2d.linearVelocity.y);
+        if(!damageable.LockVelocity)
+            rb2d.linearVelocity = new Vector2(moveInput.x * CurrentMovementSpeeed, rb2d.linearVelocity.y);
         animator.SetFloat(AnimationStrings.yVelocity, rb2d.linearVelocity.y);
     }
 
@@ -142,8 +147,11 @@ public class PlayerContoller : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
-        SetFacingDirection(moveInput);
+        if(IsAlive)
+        {
+            IsMoving = moveInput != Vector2.zero;
+            SetFacingDirection(moveInput);
+        }
     }
 
     private void SetFacingDirection(Vector2 moveInput)
@@ -168,5 +176,18 @@ public class PlayerContoller : MonoBehaviour
         {
             IsRunning = false;
         }
+    }
+
+    public bool IsAlive
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.isAlive);
+        }
+    }
+
+    public void OnHit(int damage, Vector2 knockBack)
+    {
+        rb2d.linearVelocity = new Vector2(knockBack.x, rb2d.linearVelocity.y + knockBack.y);
     }
 }

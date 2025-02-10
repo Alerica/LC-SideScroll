@@ -4,8 +4,13 @@ using UnityEngine;
 public class Knight : MonoBehaviour
 {
     public float walkSpeed = 5f;
+    public float walkStopRate = 0.05f;
     Rigidbody2D rb2d;
     TouchingDirection touchingDirection;
+    Animator animator;
+    Damageable damageable;
+
+    public DetectionZone attackZone;
 
     public enum WalkableDirection { Right, Left }
 
@@ -34,14 +39,36 @@ public class Knight : MonoBehaviour
         }
     }
 
+    public bool hasTarget = false;
+
+    public bool HasTarget { get { return hasTarget; } private set
+        {
+            hasTarget = value;
+            animator.SetBool(AnimationStrings.hasTarget, value);
+        }
+    }
+
+    public bool CanMove 
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+    }
+
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         touchingDirection = GetComponent<TouchingDirection>();
-
-        walkDirectionVector = (_walkDirection == WalkableDirection.Right) ? Vector2.right : Vector2.left;
-
+        animator = GetComponent<Animator>();
+        walkDirectionVector = (_walkDirection == WalkableDirection.Right) ? Vector2.right : Vector2.left;   
+        damageable = GetComponent<Damageable>();
     }  
+
+    void Update() 
+    {
+        HasTarget = attackZone.detectedColliders.Count > 0;
+    }
 
     void FixedUpdate() 
     {
@@ -49,7 +76,20 @@ public class Knight : MonoBehaviour
         {
             FlipDirection();
         }
-        rb2d.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb2d.linearVelocity.y);
+
+        if(!damageable.LockVelocity) 
+        {
+            if(CanMove) 
+            {
+                rb2d.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb2d.linearVelocity.y);
+            }
+            else 
+            {
+                rb2d.linearVelocity = new Vector2(Mathf.Lerp(rb2d.linearVelocity.x, 0, walkStopRate), rb2d.linearVelocity.y);
+            }
+        }
+        
+        
     }
 
     private void FlipDirection()
@@ -64,6 +104,11 @@ public class Knight : MonoBehaviour
         {
             Debug.LogError("Current walkable direction is not set to legal values of right or left");
         }
+    }
+
+    public void OnHit(int damage, Vector2 knockBack)
+    {
+        rb2d.linearVelocity = new Vector2(knockBack.x, rb2d.linearVelocity.y + knockBack.y);
     }
 
 }

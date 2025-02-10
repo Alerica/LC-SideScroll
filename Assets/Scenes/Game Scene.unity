@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &228067201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2571764790747932238, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+  m_PrefabInstance: {fileID: 5471477425161159546}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991d8ab0fe11f9d47a8f55fc95e9a9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &290686220
 GameObject:
   m_ObjectHideFlags: 0
@@ -4755,7 +4766,7 @@ GameObject:
   - component: {fileID: 1625386167}
   - component: {fileID: 1625386166}
   - component: {fileID: 1625386165}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Solid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13758,6 +13769,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 890589981157933121, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 890589981157933121, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 228067201}
+    - target: {fileID: 890589981157933121, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 890589981157933121, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 890589981157933121, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Knight, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 890589981157933121, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: damageableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.64
@@ -13797,6 +13832,10 @@ PrefabInstance:
     - target: {fileID: 2484008525809498289, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2571764790747932238, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
+      propertyPath: walkSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3676879701832695768, guid: 8dd1b401d9e33e44899675e19e68b96d, type: 3}
       propertyPath: m_Name
