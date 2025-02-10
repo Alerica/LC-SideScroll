@@ -17,29 +17,37 @@ public class PlayerContoller : MonoBehaviour
 
     public float CurrentMovementSpeeed { get 
         {
-            if(IsMoving && !touchingDirection.IsOnWall)
+            if(CanMove) 
             {
-                if(touchingDirection.IsGrounded)
+                if(IsMoving && !touchingDirection.IsOnWall)
                 {
-                    if(IsRunning) 
+                    if(touchingDirection.IsGrounded)
                     {
-                        return runSpeed;
-                    } 
-                    else 
+                        if(IsRunning) 
+                        {
+                            return runSpeed;
+                        } 
+                        else 
+                        {
+                            return walkSpeed;
+                        } 
+                    }
+                    else
                     {
-                        return walkSpeed;
-                    } 
-                }
-                else
+                        return airboneSpeed;
+                    }
+                    
+                } 
+                else 
                 {
-                    return airboneSpeed;
+                    return 0;
                 }
-                
             } 
-            else 
+            else
             {
                 return 0;
             }
+            
         }
     }
     Vector2 moveInput;
@@ -82,6 +90,12 @@ public class PlayerContoller : MonoBehaviour
              isFacingRight = value;
         }
     }
+
+    public bool CanMove { get
+        {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+    }
     public Rigidbody2D rb2d;
     Animator animator;
     void Awake() 
@@ -108,23 +122,21 @@ public class PlayerContoller : MonoBehaviour
         animator.SetFloat(AnimationStrings.yVelocity, rb2d.linearVelocity.y);
     }
 
-    public void OnAttack() 
+    public void OnAttack(InputAction.CallbackContext context) 
     {
-
+        if(context.started)
+        {
+            animator.SetTrigger(AnimationStrings.attackTrigger);
+        } 
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if(context.started && touchingDirection.IsGrounded)
+        if(context.started && touchingDirection.IsGrounded && CanMove)
         { 
-            animator.SetTrigger(AnimationStrings.isJumping);
+            animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb2d.linearVelocity = new Vector2(rb2d.linearVelocity.x, jumpForce);
         } 
-        else if (!touchingDirection.IsGrounded)
-        {
-            animator.SetBool(AnimationStrings.isJumping, false);
-        }
-
     }
 
     public void OnMove(InputAction.CallbackContext context)

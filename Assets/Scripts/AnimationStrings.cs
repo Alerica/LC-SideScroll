@@ -11,7 +11,11 @@ internal class AnimationStrings
     internal static string isOnWall = "IsOnWall";
     
     internal static string isOnCeilling = "IsOnCeilling";
-    internal static string isJumping = "IsJumping";
-
+    internal static string jumpTrigger = "IsJumping";
+    internal static string attackTrigger = "IsAttack";
     internal static string yVelocity = "yVelocity";
+
+    internal static string canMove = "CanMove";
+    
+    
 }
