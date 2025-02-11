@@ -12,6 +12,7 @@ public class Knight : MonoBehaviour
     Damageable damageable;
 
     public DetectionZone attackZone;
+    public DetectionZone cliffDetectionZone;
 
     public enum WalkableDirection { Right, Left }
 
@@ -124,6 +125,14 @@ public class Knight : MonoBehaviour
     public void OnHit(int damage, Vector2 knockBack)
     {
         rb2d.linearVelocity = new Vector2(knockBack.x, rb2d.linearVelocity.y + knockBack.y);
+    }
+
+    public void OnCliffDetected()
+    {
+        if(touchingDirection.IsGrounded)
+        {
+            FlipDirection();
+        }
     }
 
 }

@@ -135,9 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  airboneSpeed: 3
+  airboneSpeed: 4
   runSpeed: 8
-  jumpForce: 5
+  jumpForce: 8
   rb2d: {fileID: 7076894783547020297}
   isFacingRight: 1
 --- !u!114 &794136630423702257
