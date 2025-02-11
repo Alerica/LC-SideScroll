@@ -72,6 +72,7 @@ public class Damageable : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+        
     }
 
     private void Update() 
@@ -97,6 +98,7 @@ public class Damageable : MonoBehaviour
             animator.SetTrigger(AnimationStrings.hitTrigger);
             LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
+            CharacterEvents.characterDamaged.Invoke(gameObject, damage);
             return true;
         }
         return false;
