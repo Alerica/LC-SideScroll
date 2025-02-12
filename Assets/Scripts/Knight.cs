@@ -4,7 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirection))]
 public class Knight : MonoBehaviour
 {
-    public float walkSpeed = 5f;
+
+    public float walkAcceleration = 30f;
+    public float walkSpeedMax = 3f;
     public float walkStopRate = 0.05f;
     Rigidbody2D rb2d;
     TouchingDirection touchingDirection;
@@ -97,7 +99,7 @@ public class Knight : MonoBehaviour
         {
             if(CanMove) 
             {
-                rb2d.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb2d.linearVelocity.y);
+                rb2d.linearVelocity = new Vector2 (Mathf.Clamp(rb2d.linearVelocity.x + (walkAcceleration * walkDirectionVector.x * Time.fixedDeltaTime), -walkSpeedMax, walkSpeedMax), rb2d.linearVelocity.y);
             }
             else 
             {
