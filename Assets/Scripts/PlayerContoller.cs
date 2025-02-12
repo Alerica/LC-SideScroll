@@ -17,6 +17,10 @@ public class PlayerContoller : MonoBehaviour
     public Rigidbody2D rb2d;
     Animator animator;
     Damageable damageable;
+    Vector2 moveInput;
+    private bool isMoving = false;
+    private bool isRunning = false;
+    public bool isFacingRight = true;
 
     public float CurrentMovementSpeeed { get 
         {
@@ -53,10 +57,7 @@ public class PlayerContoller : MonoBehaviour
             
         }
     }
-    Vector2 moveInput;
-    private bool isMoving = false;
-    private bool isRunning = false;
-    public bool isFacingRight = true;
+    
 
     
     public bool IsMoving { get 
@@ -109,17 +110,6 @@ public class PlayerContoller : MonoBehaviour
         damageable = GetComponent<Damageable>();
     }
     
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if(!damageable.LockVelocity)

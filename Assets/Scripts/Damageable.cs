@@ -11,6 +11,35 @@ public class Damageable : MonoBehaviour
     
     [SerializeField]
     private int maxHealth = 100;
+    [SerializeField]
+    private int health = 100;
+
+    [SerializeField]
+    private bool isAlive = true;
+    private bool isInvicible = false;
+    private float timeSinceHit = 0;
+    public float invicibilityTime = 0.20f;
+
+    
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        
+    }
+
+    private void Update() 
+    {
+        if(isInvicible) 
+        {
+            if(timeSinceHit > invicibilityTime)
+            {
+                isInvicible = false;
+                timeSinceHit = 0;
+            }
+            timeSinceHit += Time.deltaTime;
+        }
+    }
+    
     public int MaxHealth
     {
         get
@@ -23,9 +52,6 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    [SerializeField]
-    private int health = 100;
-    
     public int Health
     {
         get
@@ -35,17 +61,14 @@ public class Damageable : MonoBehaviour
         set
         {
             health = value;
+
             if(health <= 0)
             {
                 IsAlive = false;
             }
         }
     }
-    [SerializeField]
-    private bool isAlive = true;
-    private bool isInvicible = false;
-    private float timeSinceHit = 0;
-    public float invicibilityTime = 0.20f;
+    
 
     public bool IsAlive 
     {
@@ -71,25 +94,6 @@ public class Damageable : MonoBehaviour
             animator.SetBool(AnimationStrings.lockVelocity, value);
         }
     }
-    void Awake()
-    {
-        animator = GetComponent<Animator>();
-        
-    }
-
-    private void Update() 
-    {
-        if(isInvicible) 
-        {
-            if(timeSinceHit > invicibilityTime)
-            {
-                isInvicible = false;
-                timeSinceHit = 0;
-            }
-            timeSinceHit += Time.deltaTime;
-        }
-
-    }
 
     public bool Hit(int damage, Vector2 knockback) 
     {
@@ -107,7 +111,6 @@ public class Damageable : MonoBehaviour
     }
 
     public bool Heal(int healthRestore)
-
     {
         if(IsAlive && Health < MaxHealth)
         {
