@@ -10,7 +10,6 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         gameCanvas = Object.FindFirstObjectByType<Canvas>();    
-        
     }
 
     void OnEnable()
@@ -36,7 +35,7 @@ public class UIManager : MonoBehaviour
     public void CharacterHealed(GameObject character, int healthRestored)
     {
         Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
-        TMP_Text tmpText = Instantiate(damageTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform).GetComponent<TMP_Text>();
+        TMP_Text tmpText = Instantiate(healthTextPrefab, spawnPosition, Quaternion.identity, gameCanvas.transform).GetComponent<TMP_Text>();
 
         tmpText.text = healthRestored.ToString();
     }

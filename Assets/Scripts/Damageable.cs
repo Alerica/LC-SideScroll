@@ -1,6 +1,8 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.TextCore.Text;
 
 public class Damageable : MonoBehaviour
 {
@@ -99,6 +101,20 @@ public class Damageable : MonoBehaviour
             LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
             CharacterEvents.characterDamaged.Invoke(gameObject, damage);
+            return true;
+        }
+        return false;
+    }
+
+    public bool Heal(int healthRestore)
+
+    {
+        if(IsAlive && Health < MaxHealth)
+        {
+            int maxHeal = Mathf.Max(maxHealth - Health, 0);
+            int actualHeal = Mathf.Min(maxHeal, healthRestore);
+            Health += actualHeal;
+            CharacterEvents.characterHealed.Invoke(gameObject, actualHeal);
             return true;
         }
         return false;

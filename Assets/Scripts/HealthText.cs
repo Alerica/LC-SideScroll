@@ -22,7 +22,7 @@ public class HealthText : MonoBehaviour
         if(timeElapsed < timeToFade)
         {
             float fadeAlpha = startColor.a * (1 - timeElapsed / timeToFade);
-            textMeshPro.color = new Color(startColor.r, startColor.b, startColor.g, fadeAlpha);
+            textMeshPro.color = new Color(startColor.r, startColor.g, startColor.b, fadeAlpha);
         }
         else 
         {
