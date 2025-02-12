@@ -1,5 +1,5 @@
 # LC-SideScroll
-
+This my attempt on following Chris' Tutorials
 ## Tutorial
 https://www.youtube.com/watch?v=oxiPWg8cdRM&t=19077s
 
