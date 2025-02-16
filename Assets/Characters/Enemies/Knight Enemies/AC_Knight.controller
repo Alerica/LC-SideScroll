@@ -329,12 +329,12 @@ AnimatorStateMachine:
   - {fileID: -901710339369837306}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -8389873614772580559}
-    second:
-    - {fileID: 7650472232780356408}
   - first: {fileID: 802938874522879529}
     second:
     - {fileID: -3832952840517272630}
+  - first: {fileID: -8389873614772580559}
+    second:
+    - {fileID: 7650472232780356408}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 580, y: 200, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
@@ -458,7 +458,7 @@ MonoBehaviour:
   updateOnState: 1
   updateOnStateMachine: 0
   valueOnEnter: 0
-  valueOnExit: 1
+  valueOnExit: 0
 --- !u!114 &5238959108196164985
 MonoBehaviour:
   m_ObjectHideFlags: 1
