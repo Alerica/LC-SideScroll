@@ -23,5 +23,6 @@ internal class AnimationStrings
     internal static string jumpTrigger = "IsJumping";
     internal static string attackTrigger = "IsAttack";
     internal static string hitTrigger = "Hit";
+    internal static string rangedAttackTrigger = "RangedAttack";
     
 }

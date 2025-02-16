@@ -20,8 +20,12 @@ public class HealthPickup : MonoBehaviour
         }
     }
 
+    private void ObjectRotation() {
+        transform.eulerAngles += spinRotationSpeed * Time.deltaTime;
+    }
+
     void Update()
     {
-        transform.eulerAngles += spinRotationSpeed * Time.deltaTime;
+        ObjectRotation();
     }
 }

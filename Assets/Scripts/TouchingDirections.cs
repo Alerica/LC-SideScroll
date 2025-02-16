@@ -7,9 +7,9 @@ public class TouchingDirection : MonoBehaviour
     Animator animator;
     public ContactFilter2D castFilter;
     CapsuleCollider2D touchingCollider;
-    public float groundDistance = 0.05f;
-    public float wallDistance = 0.07f;
-    public float ceillingDistance = 0.05f;
+    private float groundDistance = 0.2f;
+    private float wallDistance = 0.2f;
+    private float ceillingDistance = 0.1f;
     
     [SerializeField]
     private bool isGrounded;

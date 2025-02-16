@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 3459273773140521384}
   - component: {fileID: 6131898867678988247}
   - component: {fileID: 3209658708076257589}
+  - component: {fileID: 6813554745013568153}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -241,6 +242,7 @@ Transform:
   - {fileID: 5208721670344618939}
   - {fileID: 6487744439468565882}
   - {fileID: 4655044916476007611}
+  - {fileID: 1772627289033576861}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1330811940145553013
@@ -310,10 +312,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -337,10 +339,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fe8ee93d082974f9306148d3e02f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
-  airboneSpeed: 4
+  walkSpeed: 6
+  airboneSpeed: 5
   runSpeed: 8
-  jumpForce: 8
+  jumpForce: 18
   rb2d: {fileID: 7076894783547020297}
   isFacingRight: 1
 --- !u!114 &794136630423702257
@@ -492,6 +494,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1099805767281140552}
+        m_TargetAssemblyTypeName: PlayerContoller, Assembly-CSharp
+        m_MethodName: OnRangedAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 8e19ce83-391c-4fe5-8e7e-297bea18edaf
+    m_ActionName: Player/Ranged Attack
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -582,9 +600,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  groundDistance: 0.05
-  wallDistance: 0.02
-  ceillingDistance: 0.05
   isGrounded: 0
 --- !u!114 &3209658708076257589
 MonoBehaviour:
@@ -617,6 +632,20 @@ MonoBehaviour:
   health: 100
   isAlive: 1
   invicibilityTime: 1
+--- !u!114 &6813554745013568153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180342991238124854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e72599c1360293418fd147262818cfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchPoint: {fileID: 1772627289033576861}
+  projectilePrefab: {fileID: 3781114653450867971, guid: fa5e5b09f0b45a84fbe60c00297cbe17, type: 3}
 --- !u!1 &7563768162962862555
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,3 +746,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 15
   knockback: {x: 4, y: 2}
+--- !u!1 &9004904727145018842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1772627289033576861}
+  m_Layer: 7
+  m_Name: BowAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1772627289033576861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004904727145018842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.94, y: -0.22, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4564633281458501190}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
