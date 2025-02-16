@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class FlyingEye : MonoBehaviour
@@ -71,6 +70,7 @@ public class FlyingEye : MonoBehaviour
         if(distance <= wayPointReachedDistance)
         {
             wayPointNum++;
+
             if(wayPointNum >= waypoints.Count)
             {
                 wayPointNum = 0;
