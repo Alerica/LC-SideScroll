@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 6813554745013568153}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,6 +619,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8e19ce83-391c-4fe5-8e7e-297bea18edaf
     m_ActionName: Player/Ranged Attack
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 938ec267-eca3-4e71-b87b-232f1e20ea8e
+    m_ActionName: 'UI/Escape[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

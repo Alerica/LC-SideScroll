@@ -7,6 +7,7 @@ using UnityEngine.TextCore.Text;
 public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
+    public UnityEvent<int, int> healthChanged;
     Animator animator;
     
     [SerializeField]
@@ -61,6 +62,7 @@ public class Damageable : MonoBehaviour
         set
         {
             health = value;
+            healthChanged?.Invoke(health, maxHealth);
 
             if(health <= 0)
             {
