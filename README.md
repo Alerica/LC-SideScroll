@@ -1,5 +1,5 @@
 # LC-SideScroll
-This my attempt on following Chris' Tutorials
+This my attempt on following Chris' Tutorials (This is a complete copy, I`m just learning the basic of Unity)
 ## Tutorial
 https://www.youtube.com/watch?v=oxiPWg8cdRM&t=19077s
 
