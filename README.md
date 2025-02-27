@@ -2,7 +2,7 @@
 This my attempt on following Chris' Tutorials (This is a complete copy, I`m just learning the basic of Unity)
 ## Tutorial
 https://www.youtube.com/watch?v=oxiPWg8cdRM&t=19077s
-
+ 
 ## Assets 
 ### art/rvros-adventurer https://rvros.itch.io/animated-pixel-hero Adventurer 1.5, Hand Combat, Bow
 ### art/freeknight https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character
